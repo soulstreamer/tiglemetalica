@@ -27,8 +27,9 @@ export default function Navbar() {
           <span className="hidden lg:inline"><span className="font-medium">Adresa:</span> Str. Acoperișului 12, Sector 4, București</span>
         </div>
       </div>
-      <nav className="max-w-7xl mx-auto px-4 md:px-8 min-h-[180px] md:h-20 flex items-center justify-center md:justify-between relative">
-        {/* Desktop left links */}
+      <nav className="max-w-7xl mx-auto px-4 md:px-8 min-h-[180px] md:min-h-0 md:h-20 flex items-center justify-between relative">
+        {/* Left spacer on mobile to balance toggle; links on desktop */}
+        <div className="md:hidden size-10" />
         <div className="hidden md:flex items-center gap-8 flex-1 justify-end">
           {leftLinks.map((l) => (
             <Link
@@ -57,7 +58,7 @@ export default function Navbar() {
           ))}
         </div>
         {/* Mobile toggle */}
-        <button className="md:hidden text-foreground absolute right-4 top-4" onClick={() => setOpen(!open)} aria-label="Menu">
+        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X /> : <Menu />}
         </button>
       </nav>
